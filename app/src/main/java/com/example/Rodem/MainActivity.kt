@@ -1,34 +1,75 @@
 package com.example.Rodem
 
-import android.content.Context
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.AttributeSet
-import android.view.View
-import android.widget.Button
-import android.widget.Toast
-import com.example.Rodem.R
-import kotlinx.android.synthetic.main.activity_main.*
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.viewpager2.widget.ViewPager2
+import com.example.Rodem.databinding.ActivityMainBinding
+import com.example.Rodem.m2Meetting.M2MeetingMainFragment
+import com.example.Rodem.m3Profile.M3ProfileMainFragment
+import com.google.android.material.tabs.TabLayoutMediator
 
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding :ActivityMainBinding
+    private lateinit var mainVp :ViewPager2
+    private val m2MeetingFragment = M2MeetingMainFragment()
+    private val m3ProfileFragment = M3ProfileMainFragment()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val intent = Intent(this@MainActivity, SubActivity::class.java)
-        btn_test.setOnClickListener {
-            Toast.makeText(this, "Hello!!", Toast.LENGTH_LONG).show()
-            startActivity(intent)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+
+        val mainVpAdapter = MainVpAdapter(this,2)
+        with(binding){
+            mainVp = mainViewpager
+            mainVp.bringToFront()
+            mainVp.adapter = mainVpAdapter
+            mainVp.offscreenPageLimit =2
+            mainVp.isUserInputEnabled = false
         }
 
+        TabLayoutMediator(binding.mainTab,mainVp,false,false){tab, position ->
+            when(position){
+                0->{
+                    tab.text = "미팅구하기"
+                }
+                else->{
+                    tab.text = "내정보"
+                }
+            }
+        }.attach()
+
+
+
     }
 
-    override fun onCreateView(name: String, context: Context, attrs: AttributeSet): View? {
-        return super.onCreateView(name, context, attrs)
 
+    private inner class MainVpAdapter(fa : FragmentActivity,itemCount : Int):FragmentStateAdapter(fa){
+        val count = itemCount
+        override fun getItemCount(): Int {
+            return count
+        }
+
+        override fun createFragment(position: Int): Fragment {
+           return when(position){
+                0->{
+                    m2MeetingFragment
+                }else->{
+                   m3ProfileFragment
+                }
+            }
+        }
 
 
     }
+
+
+
+
 }
