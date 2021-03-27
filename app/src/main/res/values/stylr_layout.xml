@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ButtonBasicMiddleSize">
+        <item name="android:foreground">?selectableItemBackground</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:background">#00ffffff</item>
+        <item name="android:tint">#000</item>
+    </style>
+
+</resources>

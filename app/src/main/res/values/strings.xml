@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="number_participant">인원수</string>
+    <string name="want_day">요일</string>
+    <string name="update_time">등록 시간</string>
+    <string name="upload_meeting">글쓰기</string>
+    <string name="upload_title">제목 : </string>
+    <string name="upload_contents">내용 : </string>
+    <string name="upload_place1">장소1 : (왕십리역) </string>
+    <string name="upload_place2">장소2 : </string>
+    <string name="upload_place3">장소3 : </string>
+
+    <string name="monday">월</string>
+    <string name="tuesday">화</string>
+    <string name="wednesday">수</string>
+    <string name="thursday">목</string>
+    <string name="friday">금</string>
+    <string name="saturday">토</string>
+    <string name="sunday">일</string>
+    <string name="no_matter">무관</string>
+
+    <string name="want_place">장소</string>
 </resources>

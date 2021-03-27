@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/padding_item_basic"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/m2_meeting_item_sample_gl1"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/m2_meeting_item_sample_clo1"
+        android:layout_width="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/m2_meeting_item_sample_gl1"
+        android:layout_height="match_parent">
+
+        <TextView
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/text_big"
+            tools:text=" 삼전 2명 기다림"
+            android:id="@+id/m2_meeting_item_sample_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/m2_meeting_item_sample_title"
+            style="@style/text_small"
+            android:text="@string/want_place"
+            android:id="@+id/m2_meeting_item_sample_want_place_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/m2_meeting_item_sample_want_place_text"
+            style="@style/text_small"
+            tools:text="#한양대역 건대역"
+            android:id="@+id/m2_meeting_item_sample_want_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/m2_meeting_item_sample_clo2"
+        android:layout_width="0dp"
+        app:layout_constraintStart_toEndOf="@id/m2_meeting_item_sample_gl1"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/m2_meeting_item_sample_participant_number_text"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            style="@style/text_small"
+            android:text="@string/number_participant"
+            tools:text = "인원수"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            tools:text="4/2"
+            style="@style/text_basic"
+            android:id="@+id/m2_meeting_item_sample_participant_number"
+            app:layout_constraintTop_toBottomOf="@id/m2_meeting_item_sample_participant_number_text"
+            app:layout_constraintStart_toStartOf="@id/m2_meeting_item_sample_participant_number_text"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            app:layout_constraintTop_toBottomOf="@id/m2_meeting_item_sample_participant_number"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/m2_meeting_item_sample_day_text"
+            android:text="@string/want_day"
+            style="@style/text_small"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            app:layout_constraintTop_toBottomOf="@id/m2_meeting_item_sample_day_text"
+            android:layout_width="wrap_content"
+            tools:text="월화수"
+            android:layout_marginTop="5dp"
+            android:id="@+id/m2_meeting_item_sample_day"
+            style="@style/text_basic"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            app:layout_constraintTop_toBottomOf="@id/m2_meeting_item_sample_day"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/m2_meeting_item_sample_upload_date_text"
+            android:text="@string/want_day"
+            android:layout_marginTop="5dp"
+            style="@style/text_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            app:layout_constraintTop_toBottomOf="@id/m2_meeting_item_sample_upload_date_text"
+            android:layout_width="wrap_content"
+            tools:text="3분전"
+            android:layout_marginTop="5dp"
+            android:id="@+id/m2_meeting_item_sample_upload_date"
+            style="@style/text_basic"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="wrap_content"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

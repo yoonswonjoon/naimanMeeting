@@ -2,6 +2,8 @@
 <resources>
 
     <dimen name="tab_height">55dp</dimen>
-
-
+    <dimen name="padding_item_basic">8dp</dimen>
+    <dimen name="padding_text_between_item">1dp</dimen>
+    <dimen name="padding_text_inside_item">15dp</dimen>
+    <dimen name="margin_basic">15dp</dimen>
 </resources>
