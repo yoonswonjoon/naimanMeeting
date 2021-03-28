@@ -1,245 +1,332 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/m1_writing_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/basic_background"
-    android:transitionName="fab_activity"
-    android:id="@+id/m1_writing_main"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:transitionName="fab_activity">
 
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:background="@color/basic_background"
-        android:layout_height="@dimen/tab_height">
+        android:layout_height="@dimen/tab_height"
+        android:background="@color/basic_background">
+
         <include
             android:id="@+id/m1_writing_app_bar"
-            layout="@layout/a0_app_bar_layout_basic"/>
+            layout="@layout/a0_app_bar_layout_basic" />
 
     </com.google.android.material.appbar.AppBarLayout>
+
     <androidx.core.widget.NestedScrollView
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:id="@+id/m1_writing_clo_main"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:background="@color/basic_inner_background"
-            android:layout_height="match_parent">
-
-
-
-            <androidx.appcompat.widget.AppCompatEditText
-                app:layout_constraintTop_toTopOf="parent"
-                android:maxLength="15"
-                android:layout_width="match_parent"
-                android:background="@color/basic_background"
-                android:layout_height="wrap_content"
-                android:id="@+id/m1_writing_title"
-                android:hint="@string/upload_title"
-                android:paddingVertical="@dimen/padding_text_inside_item"
-                />
-
-            <EditText
-                android:maxLength="500"
-                android:paddingVertical="@dimen/padding_text_inside_item"
-                android:background="@color/basic_background"
-                android:layout_marginTop="@dimen/padding_text_between_item"
-                app:layout_constraintTop_toBottomOf="@id/m1_writing_title"
-                android:layout_width="match_parent"
-                android:id="@+id/m1_writing_content"
-                android:gravity="top"
-                android:minHeight="200dp"
-                android:hint="@string/upload_contents"
-                android:layout_height="wrap_content"/>
+            android:layout_height="match_parent"
+            android:background="@color/basic_inner_background">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_marginTop="@dimen/padding_text_between_item"
-                app:layout_constraintTop_toBottomOf="@id/m1_writing_content"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/m1_writing_clo1"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_text_between_item"
+                android:background="@color/basic_background"
+                android:paddingStart="@dimen/margin_basic"
+                app:layout_constraintTop_toTopOf="parent">
 
-                android:layout_height="match_parent">
+                <TextView
+                    style="@style/text_basic"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/text_meeting_category"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/m1_wirting_gl_0"
                     android:layout_width="wrap_content"
-                    android:id="@+id/m1_writing_gl_1"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.3"
-                    android:layout_height="wrap_content"/>
-                <EditText
-                    android:maxLength="10"
-                    android:padding="@dimen/padding_item_basic"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/m1_writing_gl_1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:id="@+id/m1_writing_place_1"
-                    android:layout_width="0dp"
-                    android:hint="@string/upload_place1"
-                    android:background="@color/basic_background"
-                    android:layout_height="wrap_content"/>
-                <EditText
-                    android:maxLength="10"
-                    android:layout_marginTop="@dimen/padding_text_between_item"
-                    android:padding="@dimen/padding_item_basic"
-                    app:layout_constraintTop_toBottomOf="@id/m1_writing_place_1"
-                    app:layout_constraintStart_toEndOf="@id/m1_writing_gl_1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:id="@+id/m1_writing_place_2"
-                    android:layout_width="0dp"
-                    android:background="@color/basic_background"
-                    android:hint="@string/upload_place2"
-                    android:layout_height="wrap_content"/>
-                <EditText
-                    android:maxLength="10"
-                    android:layout_marginTop="@dimen/padding_text_between_item"
-                    android:padding="@dimen/padding_item_basic"
-                    android:background="@color/basic_background"
-                    app:layout_constraintTop_toBottomOf="@id/m1_writing_place_2"
-                    app:layout_constraintStart_toEndOf="@id/m1_writing_gl_1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:id="@+id/m1_writing_place_3"
-                    android:layout_width="0dp"
-                    android:hint="@string/upload_place3"
-                    android:layout_height="wrap_content"/>
-
-                <TextView
-                    android:layout_marginEnd="@dimen/padding_text_between_item"
-                    android:background="@color/basic_background"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="@id/m1_writing_gl_1"
-                    app:layout_constraintTop_toTopOf="@id/m1_writing_place_1"
-                    app:layout_constraintBottom_toBottomOf="@id/m1_writing_place_3"
-                    android:layout_width="0dp"
-                    android:gravity="center"
-                    style="@style/text_basic"
-                    android:text="@string/want_place"
-                    android:layout_height="0dp"/>
-
-                <TextView
-                    android:layout_marginEnd="@dimen/padding_text_between_item"
-                    android:background="@color/basic_background"
-                    app:layout_constraintTop_toTopOf="@id/m1_writing_participant_num"
-                    app:layout_constraintBottom_toBottomOf="@id/m1_writing_participant_num"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="@id/m1_writing_gl_1"
-                    style="@style/text_basic"
-                    android:gravity="center"
-                    android:text="@string/number_participant"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"/>
-
-                <TextView
-                    android:background="@color/basic_background"
-                    android:paddingVertical="@dimen/padding_text_inside_item"
-                    android:id="@+id/m1_writing_participant_num"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/m1_writing_gl_1"
-                    app:layout_constraintTop_toBottomOf="@id/m1_writing_place_3"
-                    android:layout_marginTop="@dimen/padding_text_between_item"
-                    android:layout_width="0dp"
-                    android:gravity="center"
-                    android:text="2"
-                    android:layout_height="wrap_content"/>
-
-                <TextView
-                    app:layout_constraintTop_toTopOf="@id/m1_writing_day_llo"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toBottomOf="@id/m1_writing_day_llo"
-                    app:layout_constraintEnd_toEndOf="@id/m1_writing_gl_1"
-                    android:layout_width="0dp"
-                    android:gravity="center"
-                    android:background="@color/basic_background"
-                    android:text="@string/want_day"
-                    android:layout_height="0dp"/>
+                    app:layout_constraintGuide_percent="0.65" />
 
                 <LinearLayout
-                    android:background="@color/basic_background"
-                    android:layout_marginTop="@dimen/padding_text_between_item"
-                    android:id="@+id/m1_writing_day_llo"
-                    app:layout_constraintTop_toBottomOf="@id/m1_writing_participant_num"
-                    android:orientation="horizontal"
-                    app:layout_constraintStart_toStartOf="@id/m1_writing_gl_1"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/m1_wirting_gl_0"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                    <com.example.rodem.OneOneCheckedText
-                        android:id="@+id/m1_check_monday"
-                        android:background="@drawable/check_box_style"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="@string/monday"
-                        android:layout_margin="@dimen/padding_text_between_item"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                    <RadioGroup
+                        android:id="@+id/m1_writing_radio_gp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
-                    <com.example.rodem.OneOneCheckedText
-                        android:background="@drawable/check_box_style"
-                        android:layout_weight="1"
-                        android:layout_gravity="center"
-                        android:text="@string/tuesday"
-                        android:gravity="center"
-                        android:id="@+id/m1_check_tuesday"
-                        android:layout_margin="@dimen/padding_text_between_item"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        <RadioButton
+                            android:id="@+id/m1_writing_student_radio"
+                            tools:ignore="RtlSymmetry"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/custom_checkbox"
+                            android:paddingVertical="7.5dp"
+                            android:paddingStart="@dimen/basic_margin_inside"
+                            android:text="@string/text_student" />
 
-                    <com.example.rodem.OneOneCheckedText
-                        android:background="@drawable/check_box_style"
-                        android:layout_weight="1"
-                        android:id="@+id/m1_check_wednesday"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:text="@string/wednesday"
-                        android:layout_margin="@dimen/padding_text_between_item"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-                    <com.example.rodem.OneOneCheckedText
-                        android:layout_weight="1"
-                        android:layout_gravity="center"
-                        android:text="@string/thursday"
-                        android:id="@+id/m1_check_thursday"
-                        android:gravity="center"
-                        android:layout_margin="@dimen/padding_text_between_item"
-                        android:layout_width="wrap_content"
-                        android:background="@drawable/check_box_style"
-                        android:layout_height="wrap_content"/>
-                    <com.example.rodem.OneOneCheckedText
-                        android:layout_weight="1"
-                        android:layout_gravity="center"
-                        android:background="@drawable/check_box_style"
-                        android:text="@string/friday"
-                        android:gravity="center"
-                        android:id="@+id/m1_check_friday"
-                        android:layout_margin="@dimen/padding_text_between_item"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                    <com.example.rodem.OneOneCheckedText
-                        android:layout_weight="1"
-                        android:background="@drawable/check_box_style"
-                        android:layout_gravity="center"
-                        android:text="@string/saturday"
-                        android:gravity="center"
-                        android:id="@+id/m1_check_saturday"
-                        android:layout_margin="@dimen/padding_text_between_item"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                    <com.example.rodem.OneOneCheckedText
-                        android:layout_weight="1"
-                        android:background="@drawable/check_box_style"
-                        android:gravity="center"
-                        android:id="@+id/m1_check_sunday"
-                        android:text="@string/sunday"
-                        android:layout_margin="@dimen/padding_text_between_item"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
+                        <RadioButton
+                            android:layout_marginTop="@dimen/padding_item_basic"
+                            android:id="@+id/m1_writing_job_radio"
+                            tools:ignore="RtlSymmetry"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/custom_checkbox"
+                            android:paddingVertical="7.5dp"
+                            android:paddingStart="@dimen/basic_margin_inside"
+                            android:text="@string/text_job" />
+                    </RadioGroup>
 
                 </LinearLayout>
 
 
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/m1_writing_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_text_between_item"
+                android:background="@color/basic_background"
+                android:hint="@string/upload_title"
+                android:maxLength="15"
+                android:paddingVertical="@dimen/padding_text_inside_item"
+                android:paddingStart="@dimen/margin_basic"
+                app:layout_constraintTop_toBottomOf="@id/m1_writing_clo1" />
+
+            <EditText
+                android:id="@+id/m1_writing_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_text_between_item"
+                android:background="@color/basic_background"
+                android:gravity="top"
+                android:hint="@string/upload_contents"
+                android:maxLength="500"
+                android:minHeight="200dp"
+                android:paddingVertical="@dimen/padding_text_inside_item"
+                android:paddingStart="@dimen/margin_basic"
+                app:layout_constraintTop_toBottomOf="@id/m1_writing_title" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/padding_text_between_item"
+                app:layout_constraintBottom_toBottomOf="parent"
+
+                app:layout_constraintTop_toBottomOf="@id/m1_writing_content">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/m1_writing_gl_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.3" />
+
+                <EditText
+                    android:id="@+id/m1_writing_place_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/basic_background"
+                    android:hint="@string/upload_place1"
+                    android:maxLength="10"
+                    android:padding="@dimen/padding_item_basic"
+                    android:paddingStart="@dimen/margin_basic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/m1_writing_gl_1"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/m1_writing_place_2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_text_between_item"
+                    android:background="@color/basic_background"
+                    android:hint="@string/upload_place2"
+                    android:maxLength="10"
+                    android:padding="@dimen/padding_item_basic"
+                    android:paddingStart="@dimen/margin_basic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/m1_writing_gl_1"
+                    app:layout_constraintTop_toBottomOf="@id/m1_writing_place_1" />
+
+                <EditText
+                    android:id="@+id/m1_writing_place_3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_text_between_item"
+                    android:background="@color/basic_background"
+                    android:hint="@string/upload_place3"
+                    android:maxLength="10"
+                    android:padding="@dimen/padding_item_basic"
+                    android:paddingStart="@dimen/margin_basic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/m1_writing_gl_1"
+                    app:layout_constraintTop_toBottomOf="@id/m1_writing_place_2" />
+
+                <TextView
+                    style="@style/text_basic"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="@dimen/padding_text_between_item"
+                    android:background="@color/basic_background"
+                    android:gravity="center"
+                    android:text="@string/want_place"
+                    app:layout_constraintBottom_toBottomOf="@id/m1_writing_place_3"
+                    app:layout_constraintEnd_toEndOf="@id/m1_writing_gl_1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/m1_writing_place_1" />
+
+                <TextView
+                    style="@style/text_basic"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="@dimen/padding_text_between_item"
+                    android:background="@color/basic_background"
+                    android:gravity="center"
+                    android:text="@string/number_participant"
+                    app:layout_constraintBottom_toBottomOf="@id/m1_writing_participant_num"
+                    app:layout_constraintEnd_toEndOf="@id/m1_writing_gl_1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/m1_writing_participant_num" />
+
+                <TextView
+                    android:id="@+id/m1_writing_participant_num"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_text_between_item"
+                    android:background="@color/basic_background"
+                    android:gravity="center"
+                    android:paddingVertical="@dimen/padding_text_inside_item"
+                    android:text="2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/m1_writing_gl_1"
+                    app:layout_constraintTop_toBottomOf="@id/m1_writing_place_3" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@color/basic_background"
+                    android:gravity="center"
+                    android:text="@string/want_day"
+                    app:layout_constraintBottom_toBottomOf="@id/m1_writing_day_llo"
+                    app:layout_constraintEnd_toEndOf="@id/m1_writing_gl_1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/m1_writing_day_llo" />
+
+                <LinearLayout
+                    android:id="@+id/m1_writing_day_llo"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/padding_text_between_item"
+                    android:background="@color/basic_background"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/m1_writing_gl_1"
+                    app:layout_constraintTop_toBottomOf="@id/m1_writing_participant_num">
+
+                    <com.example.rodem.OneOneCheckedText
+                        android:id="@+id/m1_check_monday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/padding_text_between_item"
+                        android:layout_weight="1"
+                        android:background="@drawable/check_box_style"
+                        android:gravity="center"
+                        android:text="@string/monday"
+                        android:textAlignment="gravity" />
+
+                    <com.example.rodem.OneOneCheckedText
+                        android:id="@+id/m1_check_tuesday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/padding_text_between_item"
+                        android:layout_weight="1"
+                        android:background="@drawable/check_box_style"
+                        android:gravity="center"
+                        android:text="@string/tuesday"
+                        android:textAlignment="gravity" />
+
+                    <com.example.rodem.OneOneCheckedText
+                        android:id="@+id/m1_check_wednesday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/padding_text_between_item"
+                        android:layout_weight="1"
+                        android:background="@drawable/check_box_style"
+                        android:gravity="center"
+                        android:text="@string/wednesday"
+                        android:textAlignment="gravity" />
+
+                    <com.example.rodem.OneOneCheckedText
+                        android:id="@+id/m1_check_thursday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/padding_text_between_item"
+                        android:layout_weight="1"
+                        android:background="@drawable/check_box_style"
+                        android:gravity="center"
+                        android:text="@string/thursday"
+                        android:textAlignment="gravity" />
+
+                    <com.example.rodem.OneOneCheckedText
+                        android:id="@+id/m1_check_friday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/padding_text_between_item"
+                        android:layout_weight="1"
+                        android:background="@drawable/check_box_style"
+                        android:gravity="center"
+                        android:text="@string/friday"
+                        android:textAlignment="gravity" />
+
+                    <com.example.rodem.OneOneCheckedText
+                        android:id="@+id/m1_check_saturday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/padding_text_between_item"
+                        android:layout_weight="1"
+                        android:background="@drawable/check_box_style"
+                        android:gravity="center"
+                        android:text="@string/saturday"
+                        android:textAlignment="gravity" />
+
+                    <com.example.rodem.OneOneCheckedText
+                        android:id="@+id/m1_check_sunday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/padding_text_between_item"
+                        android:layout_weight="1"
+                        android:background="@drawable/check_box_style"
+                        android:gravity="center"
+                        android:text="@string/sunday"
+                        android:textAlignment="gravity" />
+
+
+                </LinearLayout>
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -247,27 +334,22 @@
 
             <ProgressBar
                 android:id="@+id/m1_dialog_basic_pb"
-                android:indeterminateDrawable="@drawable/a0_circle_progress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:layout_marginTop="16dp"
+                android:indeterminateDrawable="@drawable/a0_circle_progress"
                 android:visibility="invisible"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                />
-
-
-
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
-
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

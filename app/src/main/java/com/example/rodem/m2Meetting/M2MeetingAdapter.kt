@@ -5,6 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rodem.R
 import kotlinx.android.synthetic.main.m2_meeting_item_sample.view.*
+import vlm.naimanmaster.a1Functions.a13DateControl.timeLapseComplete
+import vlm.naimanmaster.a1Functions.a13DateControl.timestamptoDate
 
 class M2MeetingAdapter(private val itemList :MutableList<MutableMap<String, Any>>) :
     RecyclerView.Adapter<M2MeetingAdapter.RepositoryHolder>(){
@@ -31,6 +33,12 @@ class M2MeetingAdapter(private val itemList :MutableList<MutableMap<String, Any>
         val itemData = itemList[position]
         with(holder.itemView){
             m2_meeting_item_sample_title.text = itemData["title"].toString()
+            m2_meeting_item_sample_want_place.text = "# ${itemData["place"].toString().replace(",","  ")}"
+
+            val dayList = itemData["days"].toString().split(",")
+            m2_meeting_item_sample_day.text = dayReturner(dayList)
+
+            m2_meeting_item_sample_upload_date.text = timeLapseComplete(timestamptoDate(itemData["date"]))
 
         }
     }
@@ -39,5 +47,14 @@ class M2MeetingAdapter(private val itemList :MutableList<MutableMap<String, Any>
         return itemList.size
     }
 
+    private fun dayReturner(dayList:List<String>):String{
+        var returnString = ""
+        val dayStringList = listOf<String>("","월","화","수","목","금","토","일")
+
+        for (i in dayList){
+            returnString += " ${dayStringList[i.toString().toInt()]}"
+        }
+        return returnString
+    }
 
 }

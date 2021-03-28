@@ -100,7 +100,7 @@
                             android:layout_height="match_parent"
                             android:layout_width="wrap_content"
                             android:layout_marginVertical="2dp"
-                            tools:text="확인"
+                            android:text="확인"
                             >
                         </TextView>
 

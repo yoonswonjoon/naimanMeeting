@@ -8,9 +8,15 @@ object GlobalFirebaseObject {
     val fireStore = FirebaseFirestore.getInstance()
 
 
-    const val fbMeetingPosting = "meetingPosting"
+
+    const val fbPosting             = "posting"
+    const val fbMeetingPosting      = "meetingPosting"
+    const val fbStudentPosting      = "studentPosting"
+    const val fbWorkerPosting       = "workerPosting"
 
 
-
-    fun colMeetingPosting() = fireStore.collection(fbMeetingPosting)
+    fun colPosting() = fireStore.collection(fbPosting)
+    fun colMeetingPosting() = fireStore.collection(fbPosting)
+    fun colMeetingStudentPosting() = fireStore.collection(fbStudentPosting)
+    fun colMeetingWorkerPosting() = fireStore.collection(fbWorkerPosting)
 }

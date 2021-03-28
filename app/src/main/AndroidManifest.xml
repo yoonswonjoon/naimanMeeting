@@ -23,7 +23,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.rodem.m1Writing.M1MeetingWriting">
+        <activity android:name="com.example.rodem.m1Writing.M1MeetingWriting"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>

@@ -72,6 +72,7 @@ class A0TextDialogBasic : DialogFragment() {
         with(binding)
         {
 
+            a0DialogBasicContents.text = "정말 작성하시겠습니까?"
 
             a0DialogBasicBtnOk.setOnClickListener {
                 sendResult(true)

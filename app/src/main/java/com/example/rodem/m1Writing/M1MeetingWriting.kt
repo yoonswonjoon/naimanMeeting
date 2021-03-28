@@ -9,18 +9,23 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import com.example.rodem.R
 import com.example.rodem.a0Common.a0Object.GlobalFirebaseObject.colMeetingPosting
+import com.example.rodem.a0Common.a0Object.GlobalFirebaseObject.colMeetingStudentPosting
+import com.example.rodem.a0Common.a0Object.GlobalFirebaseObject.colMeetingWorkerPosting
+import com.example.rodem.a0Common.a11ViewControl.KeyboardVisibilityUtils
 import com.example.rodem.a0Common.dialog.A0TextDialogBasic
 import com.example.rodem.databinding.M1WritingMainBinding
 import com.google.android.material.transition.platform.MaterialContainerTransform
 import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
+import com.google.firebase.firestore.FieldValue
 
 
 class M1MeetingWriting : AppCompatActivity(), M1WritingDialogPicker.DialogListener,
     A0TextDialogBasic.DialogListener {
 
     private lateinit var binding: M1WritingMainBinding
-
+    private lateinit var keyboardVisibilityUtils: KeyboardVisibilityUtils
     private var firebaseData = mutableMapOf<String,Any>()
+    private var category = 0
 
     override fun sendPickerDialogRespond(dataInt: Int, respond: Boolean) {
         if (respond) {
@@ -35,13 +40,27 @@ class M1MeetingWriting : AppCompatActivity(), M1WritingDialogPicker.DialogListen
         if(respond){
             binding.m1DialogBasicPb.visibility = View.VISIBLE
             binding.m1DialogBasicPb.progress
-            colMeetingPosting().document().set(firebaseData).addOnSuccessListener {
-                binding.m1DialogBasicPb.visibility = View.GONE
-                finish()
-                Toast.makeText(this,"등록 완료",Toast.LENGTH_SHORT).show()
-            }.addOnFailureListener {
-                Toast.makeText(this,"등록 실패",Toast.LENGTH_SHORT).show()
+            firebaseData["date"] = FieldValue.serverTimestamp()
+
+            if(category ==1){
+                colMeetingStudentPosting().document().set(firebaseData).addOnSuccessListener {
+                    binding.m1DialogBasicPb.visibility = View.GONE
+                    finish()
+                    Toast.makeText(this,"등록 완료",Toast.LENGTH_SHORT).show()
+                }.addOnFailureListener {
+                    Toast.makeText(this,"등록 실패",Toast.LENGTH_SHORT).show()
+                }
+            }else{
+                colMeetingWorkerPosting().document().set(firebaseData).addOnSuccessListener {
+                    binding.m1DialogBasicPb.visibility = View.GONE
+                    finish()
+                    Toast.makeText(this,"등록 완료",Toast.LENGTH_SHORT).show()
+                }.addOnFailureListener {
+                    Toast.makeText(this,"등록 실패",Toast.LENGTH_SHORT).show()
+                }
             }
+
+
 
 
         }else{
@@ -52,6 +71,16 @@ class M1MeetingWriting : AppCompatActivity(), M1WritingDialogPicker.DialogListen
         super.onCreate(savedInstanceState)
 
         binding = M1WritingMainBinding.inflate(layoutInflater)
+
+
+        /**키보드 올라가는 기능*/
+        /*keyboardVisibilityUtils = KeyboardVisibilityUtils(window,
+                onShowKeyboard = { keyboardHeight ->
+                    binding.m1WritingCloMain.run {
+                        smoothScrollBy(scrollX, scrollY + keyboardHeight)
+                    }
+                })*/
+
 
         /**엑티비티 에니메이션 등록*/
         setEnterSharedElementCallback(MaterialContainerTransformSharedElementCallback())
@@ -93,6 +122,19 @@ class M1MeetingWriting : AppCompatActivity(), M1WritingDialogPicker.DialogListen
 
 
         with(binding) {
+            /** 게시판 종류 선택*/
+            m1WritingStudentRadio.setOnClickListener {
+                category =1
+            }
+
+            m1WritingJobRadio.setOnClickListener {
+                category =2
+            }
+
+
+
+
+            /**요일선택*/
             m1CheckMonday.setOnClickListener {
                 (it as CheckedTextView).toggle()
                 if (it.isChecked) {
@@ -151,7 +193,12 @@ class M1MeetingWriting : AppCompatActivity(), M1WritingDialogPicker.DialogListen
                     dayList.remove(7)
                 }
             }
+
+            /**요일선택 끝*/
         }
+
+
+
 
         binding.m1WritingAppBar.a0AppBarEndTv.setOnClickListener {
             val titleText = binding.m1WritingTitle.text.toString()
@@ -162,11 +209,11 @@ class M1MeetingWriting : AppCompatActivity(), M1WritingDialogPicker.DialogListen
             val participantNum = binding.m1WritingParticipantNum.text.toString().toInt()
 
             val checkBoolean = checkPossibilityUpload(title=titleText,contents = contentsText,
-            place1 = place1,place2 = place2,place3 = place3,participantNum = participantNum,days = dayList)
+            place1 = place1,place2 = place2,place3 = place3,participantNum = participantNum,days = dayList,category)
 
             if(checkBoolean){ //올릴수 있다
                 firebaseData = forFirebaseDataMapMaker(title=titleText,contents = contentsText,
-                        place1 = place1,place2 = place2,place3 = place3,participantNum = participantNum,days = dayList)
+                        place1 = place1,place2 = place2,place3 = place3,participantNum = participantNum,days = dayList,category)
 
                 val confirmDialog = A0TextDialogBasic()
                 confirmDialog.show(supportFragmentManager,"112")
@@ -184,11 +231,17 @@ class M1MeetingWriting : AppCompatActivity(), M1WritingDialogPicker.DialogListen
         }
     }
 
+    override fun onDestroy() {
+       // keyboardVisibilityUtils.detachKeyboardListeners()
+        super.onDestroy()
+    }
+
+
 
     /**작성되야하는 필수 작성란이 다 작성 되었는지 체크  다 되있다(true)*/
     private fun checkPossibilityUpload(
         title: String, contents: String, place1: String, place2: String, place3: String,
-        participantNum: Int, days: MutableList<Int>
+        participantNum: Int, days: MutableList<Int>,category:Int
     ): Boolean {
         val place = mutableListOf<String>() //장소들 리스트
         if (onlyLetterCount(place1) != 0) place.add(place1.trim())
@@ -198,13 +251,14 @@ class M1MeetingWriting : AppCompatActivity(), M1WritingDialogPicker.DialogListen
                 onlyLetterCount(contents) == 0 ||
                 place.isEmpty() ||
                 days.isEmpty() ||
-                participantNum == 0)
+                participantNum == 0||
+                category ==0)
     }
 
 
     private fun forFirebaseDataMapMaker(
         title: String, contents: String, place1: String, place2: String, place3: String,
-        participantNum: Int, days: MutableList<Int>
+        participantNum: Int, days: MutableList<Int>,category:Int
     ): MutableMap<String, Any> {
         val place = mutableListOf<String>() //장소들 리스트
         if (onlyLetterCount(place1) != 0) place.add(place1.trim())
