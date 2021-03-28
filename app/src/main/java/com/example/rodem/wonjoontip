@@ -12,6 +12,13 @@ https://stackoverflow.com/questions/63987591/material-transition-fab-to-activity
  <미해결>
     페이지 네이션 아래방향
     카테고리로 어댑터 설정
+    지역별 카테고리를 어떻게 할것인가? (쿼리를 카테고리 하나 추가해도 되면 문제없음) (지역 카테(equal), 시간(grater,order),)
+          ex) 학교포스팅->  ?  -> 경상도
+                             -> 경기도
+                             -> 서울
+                              .....
+
+                              되니까 복합쿼리만들어서 한꺼번에 사용하자
 
 
 

@@ -30,6 +30,13 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".m2Meeting.M2MeetingIntro"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 

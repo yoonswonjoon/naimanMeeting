@@ -12,7 +12,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.rodem.databinding.ActivityMainBinding
 import com.example.rodem.m1Writing.M1MeetingWriting
-import com.example.rodem.m2Meetting.M2MeetingMainFragment
+import com.example.rodem.m2Meeting.M2MeetingMainFragment
 import com.example.rodem.m3Profile.M3ProfileMainFragment
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback

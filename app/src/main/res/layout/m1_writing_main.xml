@@ -59,6 +59,7 @@
                     app:layout_constraintGuide_percent="0.65" />
 
                 <LinearLayout
+                    android:layout_marginTop="15dp"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"

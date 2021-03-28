@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/m2_meeting_intro_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src ="@drawable/baseline_keyboard_arrow_left_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/ButtonBasicMiddleSize"
+        android:visibility="visible"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6"
+        android:id="@+id/m2_meeting_intro_gl_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        style="@style/text_big"
+        tools:text="제목입니더"
+        android:id="@+id/m2_meeting_intro_title"
+        android:layout_marginBottom="@dimen/padding_item_basic"
+        app:layout_constraintBottom_toTopOf="@id/m2_meeting_intro_place"
+        app:layout_constraintStart_toStartOf="@id/m2_meeting_intro_place"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:id="@+id/m2_meeting_intro_place"
+        style="@style/text_basic"
+        android:textColor="@color/color_deep_sky"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/basic_margin_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="#왕십리 #건대"
+        app:layout_constraintBottom_toTopOf="@id/m2_meeting_intro_gl_1"
+        />
+
+
+    <TextView
+        android:id="@+id/m2_meeting_intro_days"
+        android:textColor="@color/color_red_light"
+        tools:text="월 수 금"
+        android:layout_marginEnd="@dimen/basic_margin_inside"
+        app:layout_constraintBottom_toTopOf="@id/m2_meeting_intro_gl_1"
+        style="@style/text_basic"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/m2_meeting_intro_gl_1"
+        android:layout_marginHorizontal="@dimen/basic_margin_inside"
+        android:layout_marginBottom="@dimen/basic_margin_inside"
+        android:id="@+id/m2_meeting_intro_contents_clo"
+        android:layout_height="wrap_content">
+
+
+
+
+
+
+
+
+
+        <TextView
+            style="@style/text_basic"
+            android:id="@+id/m2_meeting_intro_contents"
+            android:layout_marginTop="@dimen/padding_item_basic"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="같이놀자"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,12 +1,10 @@
-package com.example.rodem.m2Meetting
+package com.example.rodem.m2Meeting
 
-import android.app.DownloadManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rodem.a0Common.a0Object.GlobalFirebaseObject
@@ -15,11 +13,10 @@ import com.google.firebase.firestore.Query
 import vlm.naimanmaster.a1Functions.a13DateControl.timestamptoDate
 import java.util.*
 
-class M2MeetingStudent :Fragment() {
+class M2MeetingWorker :Fragment() {
     private var _binding: M2MeetingInnerPageBinding?=null
     private val binding get() = _binding!!
     private var dateTracker = Date()
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,18 +25,17 @@ class M2MeetingStudent :Fragment() {
         _binding = M2MeetingInnerPageBinding.inflate(inflater,container,false)
         val view =binding.root
         return view
-
     }
-    private lateinit var mLayoutManager: RecyclerView.LayoutManager
 
+
+    private lateinit var mLayoutManager: RecyclerView.LayoutManager
+    private val testItem = mutableListOf<MutableMap<String,Any>>()
     private val mAdapter by lazy{
         context?.let {
             M2MeetingAdapter(testItem)
         }
     }
 
-
-    private val testItem = mutableListOf<MutableMap<String,Any>>()
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
@@ -47,14 +43,10 @@ class M2MeetingStudent :Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.m2InnerTest.text = "학생들 리사이클러뷰 나올거"
-
-
-
-
+        binding.m2InnerTest.text = "직장인들 리사이클러뷰 나올거"
 
         /**최초 아이탬 불러오기*///.whereEqualTo("category",1)
-        GlobalFirebaseObject.colMeetingStudentPosting().orderBy("date", Query.Direction.DESCENDING).limit(3).get().addOnSuccessListener {
+        GlobalFirebaseObject.colMeetingWorkerPosting().orderBy("date", Query.Direction.DESCENDING).limit(3).get().addOnSuccessListener {
             for (i in it){
                 testItem.add(i.data)
             }
@@ -71,28 +63,27 @@ class M2MeetingStudent :Fragment() {
         mAdapter?.setHasStableIds(true)
         binding.m2InnerRv.layoutManager = mLayoutManager
         binding.m2InnerRv.adapter = mAdapter
-
-
         binding.m2InnerSwipe.setOnRefreshListener {
             val temporaryItemContainer = mutableListOf<MutableMap<String,Any>>()
             temporaryItemContainer.addAll(testItem)
             testItem.clear()
-            GlobalFirebaseObject.colMeetingStudentPosting().whereGreaterThan("date",dateTracker)
+
+            GlobalFirebaseObject.colMeetingWorkerPosting().whereGreaterThan("date",dateTracker)
                     .orderBy("date",Query.Direction.DESCENDING).limit(10).get().addOnSuccessListener {
-                for (i in it){
-                    testItem.add(i.data)
-                }
-                testItem.addAll(temporaryItemContainer)
-                if(!it.isEmpty){
-                    dateTracker = timestamptoDate(testItem[0]["date"])
-                }
-                mAdapter?.notifyDataSetChanged()
-                binding.m2InnerSwipe.isRefreshing = false
-            }
+
+
+                        for (i in it){
+                            testItem.add(i.data)
+                        }
+                        testItem.addAll(temporaryItemContainer)
+                        if(!it.isEmpty){
+                            dateTracker = timestamptoDate(testItem[0]["date"])
+                        }
+                        mAdapter?.notifyDataSetChanged()
+                        binding.m2InnerSwipe.isRefreshing = false
+                    }
 
         }
-
-
     }
 
 

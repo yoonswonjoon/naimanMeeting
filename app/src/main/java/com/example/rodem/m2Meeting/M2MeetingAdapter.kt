@@ -1,4 +1,4 @@
-package com.example.rodem.m2Meetting
+package com.example.rodem.m2Meeting
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -16,12 +16,14 @@ class M2MeetingAdapter(private val itemList :MutableList<MutableMap<String, Any>
     class RepositoryHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
         LayoutInflater.from(parent.context).inflate(
         R.layout.m2_meeting_item_sample, parent, false))
+
     private var listener: ItemClickListener? = null
+
     fun setItemClickListener(listener: ItemClickListener?) {
         this.listener = listener
     }
     interface ItemClickListener {
-        fun onItemClick( detail_data :MutableMap<String,Any>,position: Int)
+        fun onItemClick( detail_data :MutableMap<String,Any>)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepositoryHolder =
@@ -40,8 +42,19 @@ class M2MeetingAdapter(private val itemList :MutableList<MutableMap<String, Any>
 
             m2_meeting_item_sample_upload_date.text = timeLapseComplete(timestamptoDate(itemData["date"]))
 
+
+            m2_meeting_item_sample_card.setOnClickListener{
+                listener?.onItemClick(itemData)
+            }
+
+
         }
     }
+
+
+
+
+
 
     override fun getItemCount(): Int {
         return itemList.size

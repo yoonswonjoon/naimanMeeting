@@ -1,4 +1,4 @@
-package com.example.rodem.m2Meetting
+package com.example.rodem.m2Meeting
 
 import android.content.Intent
 import android.os.Bundle
