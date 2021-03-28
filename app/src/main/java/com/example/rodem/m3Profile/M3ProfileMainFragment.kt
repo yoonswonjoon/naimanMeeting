@@ -1,5 +1,5 @@
 
-package com.example.Rodem.m3Profile
+package com.example.rodem.m3Profile
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
-import com.example.Rodem.databinding.M3ProfileMainBinding
+import com.example.rodem.databinding.M3ProfileMainBinding
 
 class M3ProfileMainFragment :Fragment() {
 

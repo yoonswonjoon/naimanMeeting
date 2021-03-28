@@ -5,12 +5,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:overScrollMode="never"
-        tools:itemCount="3"
-        tools:listitem="@layout/m2_meeting_item_sample"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/m2_inner_swipe"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+
+            tools:itemCount="3"
+            android:id="@+id/m2_inner_rv"
+            tools:listitem="@layout/m2_meeting_item_sample"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <TextView
         android:id="@+id/m2_inner_test"

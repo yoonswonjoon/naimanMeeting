@@ -1,4 +1,4 @@
-package com.example.Rodem
+package com.example.rodem
 
 import org.junit.Test
 

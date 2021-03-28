@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.Rodem">
+    package="com.example.rodem">
 
     <application
         android:allowBackup="true"
@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.example.rodem.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,13 +17,13 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".SubActivity">
+        <activity android:name="com.example.rodem.SubActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".m1Writing.M1MeetingWriting">
+        <activity android:name="com.example.rodem.m1Writing.M1MeetingWriting">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "93188319366",
+    "project_id": "rodemlibrary",
+    "storage_bucket": "rodemlibrary.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93188319366:android:ae29e9d3e9ffdaadcf4907",
+        "android_client_info": {
+          "package_name": "com.example.rodem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "93188319366-bvgo446c8amvv629s9fkgjb3p8ga1j6q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvTiEWfuFCLdYoH6YuZcHBLRFvITWWM_k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "93188319366-bvgo446c8amvv629s9fkgjb3p8ga1j6q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

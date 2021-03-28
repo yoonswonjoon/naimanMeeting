@@ -1,20 +1,17 @@
-package com.example.Rodem.m2Meetting
+package com.example.rodem.m2Meetting
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
-import com.example.Rodem.MainActivity
-import com.example.Rodem.databinding.M1WritingMainBinding
-import com.example.Rodem.databinding.M2MeetingMainBinding
-import com.example.Rodem.m1Writing.M1MeetingWriting
+import com.example.rodem.databinding.M2MeetingMainBinding
+import com.example.rodem.m1Writing.M1MeetingWriting
 import com.google.android.material.tabs.TabLayoutMediator
 
 class M2MeetingMainFragment :Fragment() {
@@ -57,11 +54,11 @@ class M2MeetingMainFragment :Fragment() {
 
 
             m2MeetingMainFab.setOnClickListener {
-                val intent = Intent(requireContext(),M1MeetingWriting::class.java)
+                val intent = Intent(requireContext(), M1MeetingWriting::class.java)
 
 
                 val activateOption = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                        requireActivity(),binding.m2MeetingMainFab,ViewCompat.getTransitionName(binding.m2MeetingMainFab)!!
+                        requireActivity(),binding.m2MeetingMainFab, ViewCompat.getTransitionName(binding.m2MeetingMainFab)!!
                 )
 
 

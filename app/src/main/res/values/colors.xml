@@ -9,8 +9,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="test">#958888</color>
 
+    <color name="color_bright_blue">#027EE5</color>
 
-    <color name="color_deepsky">#027EE5</color>
+    <color name="color_deep_sky">#027EE5</color>
     <color name="color_red_light">#F6A1C8</color>
     <color name="basic_inner_background">#F7F7F7</color>
     <color name="basic_background">#FFFFFF</color>

@@ -1,4 +1,4 @@
-package com.example.Rodem.m1Writing
+package com.example.rodem.m1Writing
 
 import android.app.ActionBar
 import android.content.Context
@@ -11,7 +11,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.fragment.app.DialogFragment
-import com.example.Rodem.databinding.M1ParticipantPickerDialogBinding
+import com.example.rodem.databinding.M1ParticipantPickerDialogBinding
 
 class M1WritingDialogPicker() : DialogFragment() {
 

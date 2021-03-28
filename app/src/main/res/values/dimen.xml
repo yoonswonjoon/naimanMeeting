@@ -6,4 +6,6 @@
     <dimen name="padding_text_between_item">1dp</dimen>
     <dimen name="padding_text_inside_item">15dp</dimen>
     <dimen name="margin_basic">15dp</dimen>
+    <dimen name="basic_margin_inside">28dp</dimen>
+
 </resources>

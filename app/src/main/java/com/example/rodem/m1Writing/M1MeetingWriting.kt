@@ -1,21 +1,26 @@
-package com.example.Rodem.m1Writing
+package com.example.rodem.m1Writing
 
 import android.graphics.Color
 import android.os.Bundle
+import android.view.View
 import android.widget.CheckedTextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
-import com.example.Rodem.R
-import com.example.Rodem.databinding.M1WritingMainBinding
+import com.example.rodem.R
+import com.example.rodem.a0Common.a0Object.GlobalFirebaseObject.colMeetingPosting
+import com.example.rodem.a0Common.dialog.A0TextDialogBasic
+import com.example.rodem.databinding.M1WritingMainBinding
 import com.google.android.material.transition.platform.MaterialContainerTransform
 import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 
 
-class M1MeetingWriting : AppCompatActivity(), M1WritingDialogPicker.DialogListener {
+class M1MeetingWriting : AppCompatActivity(), M1WritingDialogPicker.DialogListener,
+    A0TextDialogBasic.DialogListener {
 
     private lateinit var binding: M1WritingMainBinding
 
+    private var firebaseData = mutableMapOf<String,Any>()
 
     override fun sendPickerDialogRespond(dataInt: Int, respond: Boolean) {
         if (respond) {
@@ -25,6 +30,24 @@ class M1MeetingWriting : AppCompatActivity(), M1WritingDialogPicker.DialogListen
         }
     }
 
+
+    override fun fromShortageDialogRespond(respond: Boolean) {
+        if(respond){
+            binding.m1DialogBasicPb.visibility = View.VISIBLE
+            binding.m1DialogBasicPb.progress
+            colMeetingPosting().document().set(firebaseData).addOnSuccessListener {
+                binding.m1DialogBasicPb.visibility = View.GONE
+                finish()
+                Toast.makeText(this,"등록 완료",Toast.LENGTH_SHORT).show()
+            }.addOnFailureListener {
+                Toast.makeText(this,"등록 실패",Toast.LENGTH_SHORT).show()
+            }
+
+
+        }else{
+
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -142,10 +165,12 @@ class M1MeetingWriting : AppCompatActivity(), M1WritingDialogPicker.DialogListen
             place1 = place1,place2 = place2,place3 = place3,participantNum = participantNum,days = dayList)
 
             if(checkBoolean){ //올릴수 있다
-                val firebaseData = forFirebaseDataMapMaker(title=titleText,contents = contentsText,
+                firebaseData = forFirebaseDataMapMaker(title=titleText,contents = contentsText,
                         place1 = place1,place2 = place2,place3 = place3,participantNum = participantNum,days = dayList)
 
-                Toast.makeText(this,"파이어베이스로 넘기기 만들어야함",Toast.LENGTH_SHORT).show()
+                val confirmDialog = A0TextDialogBasic()
+                confirmDialog.show(supportFragmentManager,"112")
+
             }else{// 부족함
                 Toast.makeText(this,"필수 요소를 작성하세요",Toast.LENGTH_SHORT).show()
             }
@@ -232,6 +257,8 @@ class M1MeetingWriting : AppCompatActivity(), M1WritingDialogPicker.DialogListen
     private fun onlyLetterCount(contents: String): Int {
         return removeVacancy(contents).length
     }
+
+
 
 
 }

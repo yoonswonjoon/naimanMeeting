@@ -27,6 +27,8 @@
             android:background="@color/basic_inner_background"
             android:layout_height="match_parent">
 
+
+
             <androidx.appcompat.widget.AppCompatEditText
                 app:layout_constraintTop_toTopOf="parent"
                 android:maxLength="15"
@@ -162,7 +164,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent">
 
-                    <com.example.Rodem.OneOneCheckedText
+                    <com.example.rodem.OneOneCheckedText
                         android:id="@+id/m1_check_monday"
                         android:background="@drawable/check_box_style"
                         android:layout_weight="1"
@@ -172,7 +174,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                    <com.example.Rodem.OneOneCheckedText
+                    <com.example.rodem.OneOneCheckedText
                         android:background="@drawable/check_box_style"
                         android:layout_weight="1"
                         android:layout_gravity="center"
@@ -183,7 +185,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
-                    <com.example.Rodem.OneOneCheckedText
+                    <com.example.rodem.OneOneCheckedText
                         android:background="@drawable/check_box_style"
                         android:layout_weight="1"
                         android:id="@+id/m1_check_wednesday"
@@ -194,7 +196,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
-                    <com.example.Rodem.OneOneCheckedText
+                    <com.example.rodem.OneOneCheckedText
                         android:layout_weight="1"
                         android:layout_gravity="center"
                         android:text="@string/thursday"
@@ -204,7 +206,7 @@
                         android:layout_width="wrap_content"
                         android:background="@drawable/check_box_style"
                         android:layout_height="wrap_content"/>
-                    <com.example.Rodem.OneOneCheckedText
+                    <com.example.rodem.OneOneCheckedText
                         android:layout_weight="1"
                         android:layout_gravity="center"
                         android:background="@drawable/check_box_style"
@@ -214,7 +216,7 @@
                         android:layout_margin="@dimen/padding_text_between_item"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
-                    <com.example.Rodem.OneOneCheckedText
+                    <com.example.rodem.OneOneCheckedText
                         android:layout_weight="1"
                         android:background="@drawable/check_box_style"
                         android:layout_gravity="center"
@@ -224,7 +226,7 @@
                         android:layout_margin="@dimen/padding_text_between_item"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
-                    <com.example.Rodem.OneOneCheckedText
+                    <com.example.rodem.OneOneCheckedText
                         android:layout_weight="1"
                         android:background="@drawable/check_box_style"
                         android:gravity="center"
@@ -241,6 +243,23 @@
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <ProgressBar
+                android:id="@+id/m1_dialog_basic_pb"
+                android:indeterminateDrawable="@drawable/a0_circle_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginTop="16dp"
+                android:visibility="invisible"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
 
 
 

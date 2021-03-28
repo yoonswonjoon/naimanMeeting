@@ -1,4 +1,4 @@
-package com.example.Rodem
+package com.example.rodem
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+
+
+
+    <LinearLayout
+        android:id="@+id/a0_dialog_basic_llo_main"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            >
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:background="@drawable/basic_dialog"
+                android:paddingBottom="@dimen/padding_text_inside_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="15dp"
+                >
+
+                <TextView
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:id="@+id/a0_dialog_basic_title"
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/text_small"
+                    tools:text="작성"/>
+
+                <TextView
+                    tools:text="awadawd"
+                    app:layout_constraintTop_toBottomOf="@id/a0_dialog_basic_title"
+                    android:layout_marginTop="@dimen/basic_margin_inside"
+                    android:id="@+id/a0_dialog_basic_contents"
+                    android:gravity="center"
+                    style="@style/text_basic"
+                    android:textColor="@color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                  />
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/basic_margin_inside"
+                    app:layout_constraintTop_toBottomOf="@id/a0_dialog_basic_contents"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:layout_marginHorizontal="@dimen/basic_margin_inside"
+                        >
+
+
+
+                        <TextView
+                            android:id="@+id/a0_dialog_basic_btn_no"
+                            style="@style/text_big"
+                            android:gravity="center"
+                            android:padding="@dimen/margin_basic"
+                            android:text="취소"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginVertical="2dp"
+                            android:layout_width="wrap_content"
+
+                            >
+                        </TextView>
+                        <TextView
+                            android:visibility="visible"
+                            style="@style/text_big"
+                            android:textColor="@color/color_deep_sky"
+                            android:gravity="center"
+                            android:padding="@dimen/margin_basic"
+                            android:id="@+id/a0_dialog_basic_btn_ok"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_height="match_parent"
+                            android:layout_width="wrap_content"
+                            android:layout_marginVertical="2dp"
+                            tools:text="확인"
+                            >
+                        </TextView>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+
+    <ProgressBar
+        android:id="@+id/m2_dialog_basic_pb"
+        android:indeterminateDrawable="@drawable/a0_circle_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_marginTop="16dp"
+        android:visibility="invisible"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,7 @@
-package com.example.Rodem;
+package com.example.rodem;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.CheckedTextView;
 
 public class OneOneCheckedText extends androidx.appcompat.widget.AppCompatCheckedTextView {
     public OneOneCheckedText(Context context) {

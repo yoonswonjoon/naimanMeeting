@@ -1,10 +1,8 @@
-package com.example.Rodem
+package com.example.rodem
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.Rodem.R
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_sub.*
 
 class SubActivity : AppCompatActivity() {

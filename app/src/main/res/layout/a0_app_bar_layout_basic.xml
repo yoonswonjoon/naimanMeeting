@@ -32,7 +32,7 @@
                 style="@style/text_basic"
                 android:gravity="center"
                 tools:text = "dawada"
-                android:textColor="@color/color_deepsky"
+                android:textColor="@color/color_deep_sky"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="@dimen/margin_basic"

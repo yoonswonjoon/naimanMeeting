@@ -1,4 +1,4 @@
-package com.example.Rodem
+package com.example.rodem
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,10 +10,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
-import com.example.Rodem.databinding.ActivityMainBinding
-import com.example.Rodem.m1Writing.M1MeetingWriting
-import com.example.Rodem.m2Meetting.M2MeetingMainFragment
-import com.example.Rodem.m3Profile.M3ProfileMainFragment
+import com.example.rodem.databinding.ActivityMainBinding
+import com.example.rodem.m1Writing.M1MeetingWriting
+import com.example.rodem.m2Meetting.M2MeetingMainFragment
+import com.example.rodem.m3Profile.M3ProfileMainFragment
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 
