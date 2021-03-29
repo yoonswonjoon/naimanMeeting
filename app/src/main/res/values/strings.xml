@@ -21,6 +21,7 @@
 
     <string name="text_student">대학생</string>
     <string name="text_job">직장인</string>
+    <string name="text_district">지역</string>
     <string name="text_meeting_category">게시판 종류</string>
 
     <string name="want_place">장소</string>

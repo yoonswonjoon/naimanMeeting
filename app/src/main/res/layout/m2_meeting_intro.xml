@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="@drawable/img_1"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
@@ -23,9 +24,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         />
+
+    <TextView
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/m2_meeting_intro_title"
+        app:layout_constraintStart_toStartOf="@id/m2_meeting_intro_title"
+        android:layout_marginBottom="@dimen/padding_item_basic"
+        tools:text="2/2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
     <TextView
         style="@style/text_big"
         tools:text="제목입니더"
+        android:textColor="@color/white"
         android:id="@+id/m2_meeting_intro_title"
         android:layout_marginBottom="@dimen/padding_item_basic"
         app:layout_constraintBottom_toTopOf="@id/m2_meeting_intro_place"
@@ -75,6 +87,7 @@
 
 
         <TextView
+            android:textColor="@color/white"
             style="@style/text_basic"
             android:id="@+id/m2_meeting_intro_contents"
             android:layout_marginTop="@dimen/padding_item_basic"

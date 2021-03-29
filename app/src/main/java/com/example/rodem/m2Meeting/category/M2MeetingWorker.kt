@@ -1,4 +1,4 @@
-package com.example.rodem.m2Meeting
+package com.example.rodem.m2Meeting.category
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rodem.a0Common.a0Object.GlobalFirebaseObject
 import com.example.rodem.databinding.M2MeetingInnerPageBinding
+import com.example.rodem.m2Meeting.M2MeetingAdapter
 import com.google.firebase.firestore.Query
 import vlm.naimanmaster.a1Functions.a13DateControl.timestamptoDate
 import java.util.*
@@ -43,7 +44,7 @@ class M2MeetingWorker :Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.m2InnerTest.text = "직장인들 리사이클러뷰 나올거"
+        //binding.m2InnerTest.text = "직장인들 리사이클러뷰 나올거"
 
         /**최초 아이탬 불러오기*///.whereEqualTo("category",1)
         GlobalFirebaseObject.colMeetingWorkerPosting().orderBy("date", Query.Direction.DESCENDING).limit(3).get().addOnSuccessListener {

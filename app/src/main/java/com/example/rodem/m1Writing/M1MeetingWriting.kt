@@ -8,10 +8,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import com.example.rodem.R
-import com.example.rodem.a0Common.a0Object.GlobalFirebaseObject.colMeetingPosting
+import com.example.rodem.a0Common.a0Object.GlobalDataSet
 import com.example.rodem.a0Common.a0Object.GlobalFirebaseObject.colMeetingStudentPosting
 import com.example.rodem.a0Common.a0Object.GlobalFirebaseObject.colMeetingWorkerPosting
 import com.example.rodem.a0Common.a11ViewControl.KeyboardVisibilityUtils
+import com.example.rodem.a0Common.dialog.A0DistrictDialogPicker
 import com.example.rodem.a0Common.dialog.A0TextDialogBasic
 import com.example.rodem.databinding.M1WritingMainBinding
 import com.google.android.material.transition.platform.MaterialContainerTransform
@@ -20,12 +21,22 @@ import com.google.firebase.firestore.FieldValue
 
 
 class M1MeetingWriting : AppCompatActivity(), M1WritingDialogPicker.DialogListener,
-    A0TextDialogBasic.DialogListener {
+    A0TextDialogBasic.DialogListener,A0DistrictDialogPicker.DialogListener {
 
     private lateinit var binding: M1WritingMainBinding
     private lateinit var keyboardVisibilityUtils: KeyboardVisibilityUtils
     private var firebaseData = mutableMapOf<String,Any>()
     private var category = 0
+    private var district = 0
+
+    override fun sendDistrictPickerDialogRespond(dataInt: Int, respond: Boolean) {
+        if (respond) {
+            district = dataInt
+            binding.m1WritingDistrict.text = GlobalDataSet.districtDataSet[dataInt]
+        } else {
+
+        }
+    }
 
     override fun sendPickerDialogRespond(dataInt: Int, respond: Boolean) {
         if (respond) {
@@ -36,13 +47,14 @@ class M1MeetingWriting : AppCompatActivity(), M1WritingDialogPicker.DialogListen
     }
 
 
+
     override fun fromShortageDialogRespond(respond: Boolean) {
         if(respond){
             binding.m1DialogBasicPb.visibility = View.VISIBLE
             binding.m1DialogBasicPb.progress
             firebaseData["date"] = FieldValue.serverTimestamp()
 
-            if(category ==1){
+            if(category ==1){//학생
                 colMeetingStudentPosting().document().set(firebaseData).addOnSuccessListener {
                     binding.m1DialogBasicPb.visibility = View.GONE
                     finish()
@@ -50,7 +62,7 @@ class M1MeetingWriting : AppCompatActivity(), M1WritingDialogPicker.DialogListen
                 }.addOnFailureListener {
                     Toast.makeText(this,"등록 실패",Toast.LENGTH_SHORT).show()
                 }
-            }else{
+            }else{//직장인
                 colMeetingWorkerPosting().document().set(firebaseData).addOnSuccessListener {
                     binding.m1DialogBasicPb.visibility = View.GONE
                     finish()
@@ -200,6 +212,21 @@ class M1MeetingWriting : AppCompatActivity(), M1WritingDialogPicker.DialogListen
 
 
 
+
+
+
+        binding.m1WritingParticipantNum.setOnClickListener {
+            val editDialog = M1WritingDialogPicker()
+            editDialog.show(supportFragmentManager, "112")
+        }
+
+        binding.m1WritingDistrict.setOnClickListener {
+            val districtDialog = A0DistrictDialogPicker(district)
+            districtDialog.show(supportFragmentManager,"112")
+        }
+
+
+
         binding.m1WritingAppBar.a0AppBarEndTv.setOnClickListener {
             val titleText = binding.m1WritingTitle.text.toString()
             val contentsText = binding.m1WritingContent.text.toString()
@@ -209,7 +236,7 @@ class M1MeetingWriting : AppCompatActivity(), M1WritingDialogPicker.DialogListen
             val participantNum = binding.m1WritingParticipantNum.text.toString().toInt()
 
             val checkBoolean = checkPossibilityUpload(title=titleText,contents = contentsText,
-            place1 = place1,place2 = place2,place3 = place3,participantNum = participantNum,days = dayList,category)
+                    place1 = place1,place2 = place2,place3 = place3,participantNum = participantNum,days = dayList,category)
 
             if(checkBoolean){ //올릴수 있다
                 firebaseData = forFirebaseDataMapMaker(title=titleText,contents = contentsText,
@@ -222,12 +249,6 @@ class M1MeetingWriting : AppCompatActivity(), M1WritingDialogPicker.DialogListen
                 Toast.makeText(this,"필수 요소를 작성하세요",Toast.LENGTH_SHORT).show()
             }
 
-        }
-
-
-        binding.m1WritingParticipantNum.setOnClickListener {
-            val editDialog = M1WritingDialogPicker()
-            editDialog.show(supportFragmentManager, "112")
         }
     }
 
@@ -299,6 +320,7 @@ class M1MeetingWriting : AppCompatActivity(), M1WritingDialogPicker.DialogListen
         resultMap["place"] = placeString
         resultMap["participantNum"] = participantNum
         resultMap["days"] = daysString
+        resultMap["district"]=district
 
         return resultMap
     }
@@ -311,7 +333,6 @@ class M1MeetingWriting : AppCompatActivity(), M1WritingDialogPicker.DialogListen
     private fun onlyLetterCount(contents: String): Int {
         return removeVacancy(contents).length
     }
-
 
 
 

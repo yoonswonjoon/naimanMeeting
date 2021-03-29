@@ -14,6 +14,7 @@ import com.example.rodem.databinding.ActivityMainBinding
 import com.example.rodem.m1Writing.M1MeetingWriting
 import com.example.rodem.m2Meeting.M2MeetingMainFragment
 import com.example.rodem.m3Profile.M3ProfileMainFragment
+import com.example.rodem.m4Chatting.M4MainChatList
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mainVp :ViewPager2
     private val m2MeetingFragment = M2MeetingMainFragment()
     private val m3ProfileFragment = M3ProfileMainFragment()
+    private val m4ChattingFragment = M4MainChatList()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val mainVpAdapter = MainVpAdapter(this, 2)
+        val mainVpAdapter = MainVpAdapter(this, 3)
         with(binding){
             mainVp = mainViewpager
             mainVp.bringToFront()
@@ -52,22 +54,6 @@ class MainActivity : AppCompatActivity() {
 
 
 
-            btnTest.setOnClickListener {
-                val intent = Intent(this@MainActivity, M1MeetingWriting::class.java)
-
-
-                val activateOption = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                        this@MainActivity, binding.btnTest, ViewCompat.getTransitionName(binding.btnTest)!!
-                )
-
-
-                //ActivityOptionsCompat.makeClipRevealAnimation()
-
-                //startActivity(intent,activateOption)
-                ActivityCompat.startActivity(this@MainActivity, intent, activateOption.toBundle())
-            }
-
-
         }
 
 
@@ -76,6 +62,9 @@ class MainActivity : AppCompatActivity() {
             when(position){
                 0 -> {
                     tab.text = "미팅구하기"
+                }
+                1->{
+                    tab.text = "채팅"
                 }
                 else->{
                     tab.text = "내정보"
@@ -98,7 +87,11 @@ class MainActivity : AppCompatActivity() {
            return when(position){
                0 -> {
                    m2MeetingFragment
-               }else->{
+               }
+               1->{
+                   m4ChattingFragment
+               }
+               else->{
                    m3ProfileFragment
                 }
             }

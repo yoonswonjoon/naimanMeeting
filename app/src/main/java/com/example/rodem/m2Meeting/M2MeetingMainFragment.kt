@@ -1,7 +1,9 @@
 package com.example.rodem.m2Meeting
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
+import android.text.SpannableStringBuilder
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,9 +12,13 @@ import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
+import com.example.rodem.R
 import com.example.rodem.databinding.M2MeetingMainBinding
 import com.example.rodem.m1Writing.M1MeetingWriting
+import com.example.rodem.m2Meeting.category.M2MeetingStudent
+import com.example.rodem.m2Meeting.category.M2MeetingWorker
 import com.google.android.material.tabs.TabLayoutMediator
+import com.google.firebase.database.collection.LLRBNode
 
 class M2MeetingMainFragment :Fragment() {
 
@@ -69,16 +75,24 @@ class M2MeetingMainFragment :Fragment() {
 
 
         }
+
+
+
+
         TabLayoutMediator(binding.m2MeetingMainTab,meetingVp,false,false){tab,position ->
             when(position){
                 0->{
                     tab.text = "대학생"
+
                 }
                 else->{
                     tab.text = "직장인"
                 }
             }
         }.attach()
+
+        binding.m2MeetingMainTab.tabRippleColor = null
+
     }
 
    private inner class M2MeetingVpAdapter(fa: Fragment, itemCount : Int):FragmentStateAdapter(fa){

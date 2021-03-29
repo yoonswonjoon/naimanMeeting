@@ -39,6 +39,7 @@ class M2MeetingAdapter(private val itemList :MutableList<MutableMap<String, Any>
 
             val dayList = itemData["days"].toString().split(",")
             m2_meeting_item_sample_day.text = dayReturner(dayList)
+            m2_meeting_item_sample_participant_number.text = itemData["participantNum"].toString()
 
             m2_meeting_item_sample_upload_date.text = timeLapseComplete(timestamptoDate(itemData["date"]))
 

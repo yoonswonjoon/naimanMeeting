@@ -1,4 +1,4 @@
-package com.example.rodem.m2Meeting
+package com.example.rodem.m2Meeting.category
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,12 +10,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rodem.a0Common.a0Object.GlobalFirebaseObject
 import com.example.rodem.databinding.M2MeetingInnerPageBinding
+import com.example.rodem.m2Meeting.M2MeetingAdapter
+import com.example.rodem.m2Meeting.M2MeetingIntro
 import com.google.firebase.firestore.Query
 import vlm.naimanmaster.a1Functions.a13DateControl.timestamptoDate
 import java.util.*
 import kotlin.collections.HashMap
 
-class M2MeetingStudent :Fragment(),M2MeetingAdapter.ItemClickListener {
+class M2MeetingStudent :Fragment(), M2MeetingAdapter.ItemClickListener {
     private var _binding: M2MeetingInnerPageBinding?=null
     private val binding get() = _binding!!
     private var dateTracker = Date()
@@ -40,7 +42,7 @@ class M2MeetingStudent :Fragment(),M2MeetingAdapter.ItemClickListener {
 
     override fun onItemClick(detail_data: MutableMap<String, Any>) {
         val data = detail_data as HashMap<String,Any>
-        val intent = Intent(requireContext(),M2MeetingIntro::class.java)
+        val intent = Intent(requireContext(), M2MeetingIntro::class.java)
         intent.putExtra("detailData",data)
         startActivity(intent)
     }
@@ -54,7 +56,7 @@ class M2MeetingStudent :Fragment(),M2MeetingAdapter.ItemClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.m2InnerTest.text = "학생들 리사이클러뷰 나올거"
+        //binding.m2InnerTest.text = "학생들 리사이클러뷰 나올거"
 
 
 

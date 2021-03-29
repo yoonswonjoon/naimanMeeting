@@ -101,6 +101,8 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+
+
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/m1_writing_title"
                 android:layout_width="match_parent"
@@ -226,6 +228,7 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:background="@color/basic_background"
+                    style="@style/text_basic"
                     android:gravity="center"
                     android:text="@string/want_day"
                     app:layout_constraintBottom_toBottomOf="@id/m1_writing_day_llo"
@@ -329,6 +332,31 @@
 
                 </LinearLayout>
 
+                <TextView
+                    android:background="@color/basic_background"
+                    style="@style/text_basic"
+                    app:layout_constraintTop_toTopOf="@id/m1_writing_district"
+                    app:layout_constraintBottom_toBottomOf="@id/m1_writing_district"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/m1_writing_gl_1"
+                    android:text="@string/text_district"
+                    android:gravity="center"
+                    android:layout_marginEnd="@dimen/padding_text_between_item"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"/>
+
+                <TextView
+                    android:gravity="center"
+                    android:background="@color/basic_background"
+                    android:paddingVertical="@dimen/padding_text_inside_item"
+                    style="@style/text_basic"
+                    tools:text="경남"
+                    android:id="@+id/m1_writing_district"
+                    app:layout_constraintTop_toBottomOf="@id/m1_writing_day_llo"
+                    app:layout_constraintStart_toStartOf="@id/m1_writing_gl_1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

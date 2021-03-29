@@ -12,7 +12,11 @@
         <com.google.android.material.tabs.TabLayout
             app:layout_constraintTop_toTopOf="parent"
             android:layout_width="match_parent"
-            android:background="@color/purple_200"
+            app:tabIndicatorHeight="0dp"
+            app:tabSelectedTextColor="@color/color_red_light"
+            app:tabTextColor="@color/black"
+
+            android:background="@color/basic_background"
             android:id="@+id/m2_meeting_main_tab"
             android:layout_height="@dimen/tab_height"/>
 
