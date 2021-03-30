@@ -1,19 +1,14 @@
 package com.example.rodem
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.app.ActivityOptionsCompat
-import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.rodem.databinding.ActivityMainBinding
-import com.example.rodem.m1Writing.M1MeetingWriting
 import com.example.rodem.m2Meeting.M2MeetingMainFragment
-import com.example.rodem.m3Profile.M3ProfileMainFragment
+import com.example.rodem.m3Profile.M3ProfileMainFragmentTest
 import com.example.rodem.m4Chatting.M4MainChatList
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
@@ -24,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding :ActivityMainBinding
     private lateinit var mainVp :ViewPager2
     private val m2MeetingFragment = M2MeetingMainFragment()
-    private val m3ProfileFragment = M3ProfileMainFragment()
+    private val m3ProfileFragment = M3ProfileMainFragmentTest()
     private val m4ChattingFragment = M4MainChatList()
 
 
@@ -72,6 +67,7 @@ class MainActivity : AppCompatActivity() {
             }
         }.attach()
 
+        binding.mainTab.tabRippleColor = null
 
 
     }

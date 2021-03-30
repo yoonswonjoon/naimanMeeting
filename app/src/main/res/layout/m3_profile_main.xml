@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
         app:layout_constraintTop_toTopOf="parent"
@@ -12,4 +13,98 @@
         android:text="내정보가 들어올것"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="아이디 설정"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <RadioGroup
+                android:id="@+id/m3_id_group"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/m3_id_1"
+                    tools:ignore="RtlSymmetry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/custom_checkbox"
+                    android:paddingVertical="7.5dp"
+                    android:paddingStart="@dimen/basic_margin_inside"
+                    android:text="1번" />
+
+                <RadioButton
+                    android:layout_marginTop="@dimen/padding_item_basic"
+                    android:id="@+id/m3_id_2"
+                    tools:ignore="RtlSymmetry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/custom_checkbox"
+                    android:paddingVertical="7.5dp"
+                    android:paddingStart="@dimen/basic_margin_inside"
+                    android:text="2번" />
+            </RadioGroup>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        <TextView
+            android:text="지역 설정"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:text="0"
+            android:id="@+id/m3_district_text"
+            android:paddingVertical="15dp"
+            android:textColor="@color/white"
+            android:background="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/m3_district_btn"
+            android:text="지역 설정버튼"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text=" 0   무관
+    1   서울
+    2   인천
+    3   대전
+    4   대구
+    5   울산
+    6   부산
+    7   광주
+    8   세종
+    9   경기도
+    10  강원도
+    11  충청북도
+    12  충청남도
+    13  전라북도
+    14  전라남도
+    15  경상북도
+    16  경상남도
+    17  제주도"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -210,6 +210,8 @@ class M1MeetingWriting : AppCompatActivity(), M1WritingDialogPicker.DialogListen
         }
 
 
+        binding.m1WritingDistrict.text = GlobalDataSet.districtDataSet[district]
+
 
 
 
@@ -305,9 +307,9 @@ class M1MeetingWriting : AppCompatActivity(), M1WritingDialogPicker.DialogListen
         }else{
             for (i in 0 until days.size){
                 if(i ==0){
-                    daysString = "${days[i]}"
+                    daysString = "${orderedDays[i]}"
                 }else{
-                    daysString+=",${days[i]}"
+                    daysString+=",${orderedDays[i]}"
                 }
             }
         }
@@ -321,6 +323,10 @@ class M1MeetingWriting : AppCompatActivity(), M1WritingDialogPicker.DialogListen
         resultMap["participantNum"] = participantNum
         resultMap["days"] = daysString
         resultMap["district"]=district
+
+
+        val randomBackgroundGenerator = (1..8).random()
+        resultMap["randomBackground"] = randomBackgroundGenerator
 
         return resultMap
     }

@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="@drawable/img_1"
+    android:id="@+id/m2_meeting_intro_main_clo"
+
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
+        android:background="#80000000"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/m2_meeting_intro_close"
@@ -25,11 +32,18 @@
         android:layout_height="wrap_content"
         />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/m2_meeting_intro_gl_2"
+        app:layout_constraintGuide_percent="0.85"
+        android:layout_height="wrap_content"/>
     <TextView
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@id/m2_meeting_intro_title"
         app:layout_constraintStart_toStartOf="@id/m2_meeting_intro_title"
         android:layout_marginBottom="@dimen/padding_item_basic"
+        android:id="@+id/m2_meeting_intro_participant_num"
         tools:text="2/2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
@@ -58,6 +72,17 @@
         app:layout_constraintBottom_toTopOf="@id/m2_meeting_intro_gl_1"
         />
 
+    <TextView
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@id/m2_meeting_intro_days"
+        app:layout_constraintTop_toTopOf="@id/m2_meeting_intro_participant_num"
+        android:layout_marginBottom="@dimen/padding_item_basic"
+        android:layout_width="wrap_content"
+        android:id="@+id/m2_meeting_date"
+        style="@style/text_basic"
+        tools:text="3/12 11:11"
+        android:layout_height="wrap_content"/>
+
 
     <TextView
         android:id="@+id/m2_meeting_intro_days"
@@ -73,29 +98,43 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         app:layout_constraintTop_toBottomOf="@id/m2_meeting_intro_gl_1"
+        app:layout_constraintBottom_toBottomOf="@id/m2_meeting_intro_gl_2"
         android:layout_marginHorizontal="@dimen/basic_margin_inside"
         android:layout_marginBottom="@dimen/basic_margin_inside"
         android:id="@+id/m2_meeting_intro_contents_clo"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp">
 
-
-
-
-
-
-
-
-
-        <TextView
-            android:textColor="@color/white"
-            style="@style/text_basic"
-            android:id="@+id/m2_meeting_intro_contents"
-            android:layout_marginTop="@dimen/padding_item_basic"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="같이놀자"
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent">
+
+            <TextView
+                android:textColor="@color/white"
+                style="@style/text_basic"
+                android:id="@+id/m2_meeting_intro_contents"
+                android:layout_marginTop="@dimen/padding_item_basic"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="같이놀자"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+        </androidx.core.widget.NestedScrollView>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="match_parent"
+        android:id="@+id/m2_meeting_apply"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@id/m2_meeting_intro_gl_2"
+        android:layout_marginHorizontal="@dimen/basic_margin_inside"
+        android:textColor="@color/white"
+        android:text="@string/text_apply"
+        style="@style/text_button_clickable_transparent"
+        android:layout_height="wrap_content"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

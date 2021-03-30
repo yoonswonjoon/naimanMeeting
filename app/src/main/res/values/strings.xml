@@ -22,7 +22,31 @@
     <string name="text_student">대학생</string>
     <string name="text_job">직장인</string>
     <string name="text_district">지역</string>
+    <string name="text_apply">신청하기</string>
     <string name="text_meeting_category">게시판 종류</string>
 
     <string name="want_place">장소</string>
+
+
+    <string name="district_0">무관</string>
+    <string name="district_1">서울</string>
+    <string name="district_2">인천</string>
+    <string name="district_3">대전</string>
+    <string name="district_4">대구</string>
+    <string name="district_5">울산</string>
+    <string name="district_6">부산</string>
+    <string name="district_7">광주</string>
+    <string name="district_8">세종</string>
+    <string name="district_9">경기도</string>
+    <string name="district_10">강원도</string>
+    <string name="district_11">충청북도</string>
+    <string name="district_12">충청남도</string>
+    <string name="district_13">전라북도</string>
+    <string name="district_14">전라남도</string>
+    <string name="district_15">경상북도</string>
+    <string name="district_16">경상남도</string>
+    <string name="district_17">제주도</string>
+
+
+
 </resources>

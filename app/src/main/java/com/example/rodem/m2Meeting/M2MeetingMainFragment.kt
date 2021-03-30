@@ -17,6 +17,7 @@ import com.example.rodem.databinding.M2MeetingMainBinding
 import com.example.rodem.m1Writing.M1MeetingWriting
 import com.example.rodem.m2Meeting.category.M2MeetingStudent
 import com.example.rodem.m2Meeting.category.M2MeetingWorker
+import com.example.rodem.m2Meeting.m2Dialog.M2DistrictDialog
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.database.collection.LLRBNode
 
@@ -67,12 +68,16 @@ class M2MeetingMainFragment :Fragment() {
                         requireActivity(),binding.m2MeetingMainFab, ViewCompat.getTransitionName(binding.m2MeetingMainFab)!!
                 )
 
-
-
                 startActivity(intent,activateOption.toBundle())
                 //ActivityCompat.startActivity(requireActivity(),intent,activateOption.toBundle())
             }
 
+
+        }
+
+        binding.m2MeetingMainDistrict.setOnClickListener {
+            val districtDialog = M2DistrictDialog()
+            fragmentManager?.let { it1 -> districtDialog.show(it1,"112") }
 
         }
 

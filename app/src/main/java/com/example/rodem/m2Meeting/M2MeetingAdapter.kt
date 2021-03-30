@@ -32,6 +32,7 @@ class M2MeetingAdapter(private val itemList :MutableList<MutableMap<String, Any>
 
 
     override fun onBindViewHolder(holder: RepositoryHolder, position: Int) {
+
         val itemData = itemList[position]
         with(holder.itemView){
             m2_meeting_item_sample_title.text = itemData["title"].toString()
@@ -53,7 +54,9 @@ class M2MeetingAdapter(private val itemList :MutableList<MutableMap<String, Any>
     }
 
 
-
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
 
 
 

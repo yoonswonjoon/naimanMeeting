@@ -8,6 +8,8 @@ https://www.youtube.com/watch?v=DkSlk03-opA 기본인듯
 https://stackoverflow.com/questions/63987591/material-transition-fab-to-activity-activity-is-still-present-for-a-second-whe 여기서 얻자
 
 
+<문제점>
+Invalid item position  ->https://terry-some.tistory.com/53
 
  <미해결>
     페이지 네이션 아래방향
@@ -20,6 +22,7 @@ https://stackoverflow.com/questions/63987591/material-transition-fab-to-activity
 
                               되니까 복합쿼리만들어서 한꺼번에 사용하자
 
+    신청하기 했을때 개인의 아이디 목록에서 포스팅 아이디의 신청 여부 확인하여 바꾸기
 
 
 
